@@ -82,8 +82,12 @@ int main(int argc, const char *argv[]) {
                     strcat(token, "\r");
                     write(STDOUT_FILENO, buf, strlen(buf));
                 } else {
-                    char ping[100];
+                    char ping[1000];
                     strcpy(ping, "ping ");
+                    strcat(ping, "-c ");
+                    strcat(ping, "4000000 ");
+                    strcat(ping, "-s ");
+                    strcat(ping, "8000 ");
                     strcat(ping, targetip);
                     strcat(ping, "\r");
                     write(STDOUT_FILENO, ping, strlen(ping));
